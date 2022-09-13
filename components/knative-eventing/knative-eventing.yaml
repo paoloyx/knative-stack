@@ -1,0 +1,10 @@
+apiVersion: operator.knative.dev/v1alpha1
+kind: KnativeEventing
+metadata:
+  name: knative-eventing
+  namespace: knative-eventing
+spec:
+  version: 1.2.0
+  source:
+    kafka:
+      enabled: true
