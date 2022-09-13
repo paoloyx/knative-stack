@@ -5,3 +5,9 @@ metadata:
   namespace: knative-serving
 spec:
   version: 1.2.0
+  ingress:
+    kourier:
+      enabled: true
+  config:
+    network:
+      ingress-class: "kourier.ingress.networking.knative.dev"
