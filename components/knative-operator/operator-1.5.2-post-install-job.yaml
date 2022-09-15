@@ -17,8 +17,8 @@ kind: ClusterRole
 metadata:
   name: knative-operator-post-install-job-role
   labels:
-    operator.knative.dev/release: "v1.4.2"
-    app.kubernetes.io/version: "1.4.2"
+    operator.knative.dev/release: "v1.5.2"
+    app.kubernetes.io/version: "1.5.2"
     app.kubernetes.io/part-of: knative-operator
 rules:
   # Storage version upgrader needs to be able to patch CRDs.
@@ -68,8 +68,8 @@ kind: ClusterRoleBinding
 metadata:
   name: knative-operator-post-install-job-role-binding
   labels:
-    operator.knative.dev/release: "v1.4.2"
-    app.kubernetes.io/version: "1.4.2"
+    operator.knative.dev/release: "v1.5.2"
+    app.kubernetes.io/version: "1.5.2"
     app.kubernetes.io/part-of: knative-operator
 subjects:
   - kind: ServiceAccount
@@ -101,8 +101,8 @@ metadata:
   name: knative-operator-post-install-job
   namespace: default
   labels:
-    operator.knative.dev/release: "v1.4.2"
-    app.kubernetes.io/version: "1.4.2"
+    operator.knative.dev/release: "v1.5.2"
+    app.kubernetes.io/version: "1.5.2"
     app.kubernetes.io/part-of: knative-operator
 
 ---
@@ -123,12 +123,12 @@ metadata:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: storage-version-migration-operator-1.4.2
+  name: storage-version-migration-operator-1.5.2
   namespace: default
   labels:
     app: "storage-version-migration-operator"
-    operator.knative.dev/release: "v1.4.2"
-    app.kubernetes.io/version: "1.4.2"
+    operator.knative.dev/release: "v1.5.2"
+    app.kubernetes.io/version: "1.5.2"
     app.kubernetes.io/part-of: knative-operator
 spec:
   ttlSecondsAfterFinished: 600
@@ -137,8 +137,8 @@ spec:
     metadata:
       labels:
         app: "storage-version-migration-operator"
-        operator.knative.dev/release: "v1.4.2"
-        app.kubernetes.io/version: "1.4.2"
+        operator.knative.dev/release: "v1.5.2"
+        app.kubernetes.io/version: "1.5.2"
         app.kubernetes.io/part-of: knative-operator
       annotations:
         sidecar.istio.io/inject: "false"
@@ -147,7 +147,7 @@ spec:
       restartPolicy: OnFailure
       containers:
         - name: migrate
-          image: gcr.io/knative-releases/knative.dev/pkg/apiextensions/storageversion/cmd/migrate@sha256:64dc853ffc6f28f2189c0cee761f3adb8c99f33a6828e0f1d1e2555bd7fc6bc1
+          image: gcr.io/knative-releases/knative.dev/pkg/apiextensions/storageversion/cmd/migrate@sha256:16e74afad56632b54596cf9a00fd42365347c75a3ea06036fdea4d85b3bb5f5c
           args:
             - "knativeservings.operator.knative.dev"
             - "knativeeventings.operator.knative.dev"
