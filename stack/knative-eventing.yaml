@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/paoloyx/knative-stack
-    targetRevision: main
+    targetRevision: knative-1.2
     path: components/knative-eventing
   destination:
     server: https://kubernetes.default.svc
