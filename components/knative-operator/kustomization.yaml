@@ -3,4 +3,5 @@ kind: Kustomization
 # overriding usage of "default" namespace in favor of "knative"
 namespace: knative
 resources:
-  - https://github.com/knative/operator/releases/download/knative-v1.2.0/operator.yaml
+  - https://github.com/knative/operator/releases/download/knative-v1.4.2/operator.yaml
+  - operator-1.4.2-post-install-job.yaml
