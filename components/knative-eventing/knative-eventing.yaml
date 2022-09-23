@@ -10,21 +10,6 @@ spec:
   source:
     kafka:
       enabled: true
-  deployments:
-  - name: eventing-controller
-    replicas: 1
-  - name: imc-controller
-    replicas: 1
-  - name: imc-dispatcher
-    replicas: 1
-  - name: kafka-controller-manager
-    replicas: 1
-  - name: mt-broker-controller 
-    replicas: 1
-  - name: mt-broker-filter
-    replicas: 1
-  - name: mt-broker-ingress
-    replicas: 1
   podDisruptionBudgets:
   - name: eventing-webhook
     minAvailable: 50%
