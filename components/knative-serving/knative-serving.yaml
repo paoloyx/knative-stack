@@ -4,6 +4,8 @@ metadata:
   name: knative-serving
   namespace: knative-serving
 spec:
+  high-availability:
+    replicas: 2
   version: 1.7.1
   ingress:
     kourier:
@@ -12,10 +14,20 @@ spec:
     network:
       ingress-class: "kourier.ingress.networking.knative.dev"
   deployments:
-  - name: webhook
-    replicas: 2
-  - name: activator
-    replicas: 2
+  - name: autoscaler
+    replicas: 1
+  - name: autoscaler-hpa
+    replicas: 1
+  - name: controller
+    replicas: 1
+  - name: domain-mapping 
+    replicas: 1
+  - name: domainmapping-webhook
+    replicas: 1
+  - name: net-istio-controller
+    replicas: 1
+  - name: net-istio-webhook
+    replicas: 1
   podDisruptionBudgets:
   - name: activator-pdb
     minAvailable: 50%
