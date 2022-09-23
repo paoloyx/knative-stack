@@ -21,10 +21,6 @@ spec:
     replicas: 1
   - name: mt-broker-controller 
     replicas: 1
-  - name: mt-broker-filter
-    replicas: 1
-  - name: mt-broker-ingress
-    replicas: 1
   podDisruptionBudgets:
   - name: eventing-webhook
     minAvailable: 50%
