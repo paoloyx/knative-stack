@@ -13,6 +13,21 @@ spec:
   config:
     network:
       ingress-class: "kourier.ingress.networking.knative.dev"
+  deployments:
+  - name: autoscaler
+    replicas: 1
+  - name: autoscaler-hpa
+    replicas: 1
+  - name: controller
+    replicas: 1
+  - name: domain-mapping 
+    replicas: 1
+  - name: domainmapping-webhook
+    replicas: 1
+  - name: net-istio-controller
+    replicas: 1
+  - name: net-istio-webhook
+    replicas: 1
   podDisruptionBudgets:
   - name: activator-pdb
     minAvailable: 50%
