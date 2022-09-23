@@ -11,3 +11,13 @@ spec:
   config:
     network:
       ingress-class: "kourier.ingress.networking.knative.dev"
+  deployments:
+  - name: webhook
+    replicas: 2
+  - name: activator
+    replicas: 2
+  podDisruptionBudgets:
+  - name: activator-pdb
+    minAvailable: 50%
+  - name: webhook-pdb
+    minAvailable: 50%

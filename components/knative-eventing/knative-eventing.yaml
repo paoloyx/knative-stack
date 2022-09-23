@@ -8,3 +8,9 @@ spec:
   source:
     kafka:
       enabled: true
+  deployments:
+  - name: eventing-webhook
+    replicas: 2
+  podDisruptionBudgets:
+  - name: eventing-webhook
+    minAvailable: 50%
